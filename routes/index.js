@@ -24,13 +24,13 @@ router.post('/', function(req, res, next) {
 
 						if (data) {
 							console.log("if");
-							c = data.ID + 1;
+							c = data.unique_id + 1;
 						}else{
 							c=1;
 						}
 
 						var newPerson = new User({
-							ID:c,
+							unique_id:c,
 							nowa:personInfo.nowa,
 							username: personInfo.username,
 							password: personInfo.password,
