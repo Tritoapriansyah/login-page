@@ -4,11 +4,11 @@ var ejs = require('ejs');
 var path = require('path');
 var app = express();
 var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
+var quickmongo = require('quickmongo');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 
-mongoose.connect('mongodb+srv://devn:ma3c140175@cluster0-vatbg.mongodb.net/registrationFormHeruko?retryWrites=true&w=majority', {
+quickmongo.connect('mongodb+srv://devn:ma3c140175@devn.je2td.mongodb.net/devn?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }, (err) => {
@@ -19,7 +19,7 @@ mongoose.connect('mongodb+srv://devn:ma3c140175@cluster0-vatbg.mongodb.net/regis
   }
 });
 
-var db = mongoose.connection;
+var db = quickmongo.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {
 });
@@ -29,7 +29,7 @@ app.use(session({
   resave: true,
   saveUninitialized: false,
   store: new MongoStore({
-    mongooseConnection: db
+    quickmongoConnection: db
   })
 }));
 
