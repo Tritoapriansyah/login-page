@@ -9,6 +9,6 @@ userSchema = new Schema( {
 	password: String,
 	passwordConf: String
 }),
-User = mongoose.model('User', userSchema);
+User = mongoose.model('jsons', userSchema);
 
 module.exports = User;
