@@ -12,12 +12,12 @@ router.post('/', function(req, res, next) {
 	var personInfo = req.body;
 
 
-	if(!personInfo.email || !personInfo.username || !personInfo.password || !personInfo.passwordConf){
+	if(!personInfo.nowa || !personInfo.username || !personInfo.password || !personInfo.passwordConf){
 		res.send();
 	} else {
 		if (personInfo.password == personInfo.passwordConf) {
 
-			User.findOne({email:personInfo.email},function(err,data){
+			User.findOne({nowa:personInfo.nowa},function(err,data){
 				if(!data){
 					var c;
 					User.findOne({},function(err,data){
@@ -31,7 +31,7 @@ router.post('/', function(req, res, next) {
 
 						var newPerson = new User({
 							unique_id:c,
-							email:personInfo.email,
+							nowa:personInfo.nowa,
 							username: personInfo.username,
 							password: personInfo.password,
 							passwordConf: personInfo.passwordConf
@@ -45,14 +45,14 @@ router.post('/', function(req, res, next) {
 						});
 
 					}).sort({_id: -1}).limit(1);
-					res.send({"Success":"You are regestered,You can login now."});
+					res.send({"Success":"Yay! Berhasil registrasi. Tunggu! sedang mengalihkan halaman..."});
 				}else{
-					res.send({"Success":"Email is already used."});
+					res.send({"Success":"Nomor tersebut sudah terdaftar di database."});
 				}
 
 			});
 		}else{
-			res.send({"Success":"password is not matched"});
+			res.send({"Success":"Konfirmasi password tidak sesuai kak"});
 		}
 	}
 });
@@ -63,7 +63,7 @@ router.get('/login', function (req, res, next) {
 
 router.post('/login', function (req, res, next) {
 	//console.log(req.body);
-	User.findOne({email:req.body.email},function(err,data){
+	User.findOne({nowa:req.body.nowa},function(err,data){
 		if(data){
 			
 			if(data.password==req.body.password){
@@ -73,10 +73,10 @@ router.post('/login', function (req, res, next) {
 				res.send({"Success":"Success!"});
 				
 			}else{
-				res.send({"Success":"Wrong password!"});
+				res.send({"Success":"Password salah!"});
 			}
 		}else{
-			res.send({"Success":"This Email Is not regestered!"});
+			res.send({"Success":"Nomor tersebut tidak terdaftar di database!"});
 		}
 	});
 });
@@ -90,7 +90,7 @@ router.get('/profile', function (req, res, next) {
 			res.redirect('/');
 		}else{
 			//console.log("found");
-			return res.render('data.ejs', {"name":data.username,"email":data.email});
+			return res.render('data.ejs', {"name":data.username,"nowa":data.nowa});
 		}
 	});
 });
@@ -116,10 +116,10 @@ router.get('/forgetpass', function (req, res, next) {
 router.post('/forgetpass', function (req, res, next) {
 	//console.log('req.body');
 	//console.log(req.body);
-	User.findOne({email:req.body.email},function(err,data){
+	User.findOne({nowa:req.body.nowa},function(err,data){
 		console.log(data);
 		if(!data){
-			res.send({"Success":"This Email Is not regestered!"});
+			res.send({"Success":"Nomor tersebut tidak terdaftar di database!"});
 		}else{
 			// res.send({"Success":"Success!"});
 			if (req.body.password==req.body.passwordConf) {
@@ -131,10 +131,10 @@ router.post('/forgetpass', function (req, res, next) {
 					console.log(err);
 				else
 					console.log('Success');
-					res.send({"Success":"Password changed!"});
+					res.send({"Success":"Password berubah!"});
 			});
 		}else{
-			res.send({"Success":"Password does not matched! Both Password should be same."});
+			res.send({"Success":"Konfirmasi password tidak sesuai!"});
 		}
 		}
 	});
