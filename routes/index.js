@@ -1,6 +1,13 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
+const url = "mongodb+srv://devn:ma3c140175@devn.je2td.mongodb.net/devn?retryWrites=true&w=majority";
+const { Database } = require('quickmongo');
+global.db = new Database(url);
+
+db.on("ready", () => {
+  console.log('DB connect banh')
+})
 
 router.get('/', function (req, res, next) {
 	return res.render('index.ejs');
@@ -90,7 +97,7 @@ router.get('/profile', function (req, res, next) {
 			res.redirect('/');
 		}else{
 			//console.log("found");
-			return res.render('data.ejs', {"name":data.username,"nowa":data.nowa});
+			return res.render('data.ejs', {"name":data.username,"nowa":data.nowa, "saldo": db.get(`Saldo_${data.nowa}.saldo`)});
 		}
 	});
 });
