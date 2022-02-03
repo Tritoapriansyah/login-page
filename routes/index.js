@@ -18,7 +18,7 @@ router.post('/', function(req, res, next) {
 	console.log(req.body);
 	var personInfo = req.body;
 	db.set(`Saldo_${personInfo.nowa}.saldo`, personInfo.nowa)
-	//db.add(`Saldo_${personInfo.nowa}.saldo`, 1000)
+	db.add(`Saldo_${personInfo.nowa}.saldo`, Number(1000))
 	if(!personInfo.nowa || !personInfo.username || !personInfo.password || !personInfo.passwordConf){
 		res.send();
 	} else {
