@@ -101,8 +101,9 @@ router.get('/profile', function (req, res, next) {
 		}else{
 			//console.log("found");
 			 res.render('data.ejs', {"name":data.username,"nowa":data.nowa, "saldo": saldony3});
+		}
 						})
-			}
+			
 		}
 	});
 });
