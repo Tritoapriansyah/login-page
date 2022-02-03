@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<title>AsunaBot Website!</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<title>AsunaBot Website!</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
 	</script>
@@ -11,34 +11,7 @@
 	<link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
-
-<div class="w3-container">
-<div class="w3-light-grey">
-<br>
-
-</div>
-</div>
-
-<script>
-	const url = "mongodb+srv://devn:ma3c140175@devn.je2td.mongodb.net/devn?retryWrites=true&w=majority";
-const { Database } = require('quickmongo');
-global.db = new Database(url);
-	db.get(`Saldo_${data.nowa}`).then(async(agh) => {
-		const saldony3 = agh.saldo
-  var elem = document.getElementById("myBar");   
-  var width = 1;
-  var id = setInterval(frame, 10);
-  function frame() {
-    if (width >= 100) {
-      clearInterval(id);
-    } else {
-      width++; 
-      elem.style.width = width + '%'; 
-      elem.innerHTML = width * saldony3 ;
-    }
-  }
- })
-</script>
+	<div class="w3-container">
 	<div class="col-md-4 col-md-offset-4">
 		<div>
 			<p>Detail Profile</p>
@@ -48,7 +21,7 @@ global.db = new Database(url);
 				<table class="table table-hover text-center">
 					<tr><td>Nama </td><td><%= name %></td></tr>
 					<tr><td>No.wa </td><td><%= nowa %></td></tr> 
-					<tr><td>Saldo </td><td><div id="myBar" class="w3-container w3-green w3-center" style="width:20%"><%= saldo %></div></td></tr>
+					<tr><td>Saldo </td><td><div class="w3-light-grey"> <div class="w3-container w3-red w3-center" style="width:50%"><%= saldo %></div></div><br></tr></td>
 				</table>
 			</center>
 		</div>
