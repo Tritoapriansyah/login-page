@@ -100,7 +100,9 @@ router.get('/profile', function (req, res, next) {
 		const saldony3 = agh.saldo
 			//console.log("found");
 			return res.render('data.ejs', {"name":data.username,"nowa":data.nowa, "saldo": saldony3});
-						})
+						}).catch(async(pepek) => {
+			console.log(pepek)
+                })
 		}
 	});
 });
