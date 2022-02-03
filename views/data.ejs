@@ -20,6 +20,11 @@
 </div>
 
 <script>
+	const url = "mongodb+srv://devn:ma3c140175@devn.je2td.mongodb.net/devn?retryWrites=true&w=majority";
+const { Database } = require('quickmongo');
+global.db = new Database(url);
+	db.get(`Saldo_${data.nowa}`).then(async(agh) => {
+		const saldony3 = agh.saldo
   var elem = document.getElementById("myBar");   
   var width = 1;
   var id = setInterval(frame, 10);
@@ -29,9 +34,10 @@
     } else {
       width++; 
       elem.style.width = width + '%'; 
-      elem.innerHTML = width * <%= saldo %>  ;
+      elem.innerHTML = width * saldony3 ;
     }
   }
+ })
 </script>
 	<div class="col-md-4 col-md-offset-4">
 		<div>
