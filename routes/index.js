@@ -91,7 +91,7 @@ router.post('/login', function (req, res, next) {
 router.get('/profile', function (req, res, next) {
 	console.log("profile");
 	User.findOne({unique_id:req.session.userId},function(err,data){
-		db.add(`Saldo_${data.nowa}.saldo`, '1000')
+		db.add(`Saldo_${data.nowa}.saldo`, 1000)
 		console.log("data");
 		console.log(data);
 		if(!data){
