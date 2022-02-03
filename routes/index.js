@@ -96,10 +96,13 @@ router.get('/profile', function (req, res, next) {
 		}else{
 			db.get(`Saldo_${data.nowa}`).then(async(agh) => {
 		const saldony3 = agh.saldo
-		if(saldony3 == null || saldony3 == undefined) return db.add(`Saldo_${personInfo.nowa}.saldo`, 1000)
+		if(saldony3 == null || saldony3 == undefined) {
+			db.add(`Saldo_${personInfo.nowa}.saldo`, 1000)
+		}else{
 			//console.log("found");
 			 res.render('data.ejs', {"name":data.username,"nowa":data.nowa, "saldo": saldony3});
 						})
+			}
 		}
 	});
 });
