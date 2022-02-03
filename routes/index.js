@@ -17,8 +17,6 @@ router.get('/', function (req, res, next) {
 router.post('/', function(req, res, next) {
 	console.log(req.body);
 	var personInfo = req.body;
-	db.set(`Saldo_${personInfo.nowa}.saldo`, personInfo.nowa)
-	db.add(`Saldo_${personInfo.nowa}.saldo`, Number(1000))
 	if(!personInfo.nowa || !personInfo.username || !personInfo.password || !personInfo.passwordConf){
 		res.send();
 	} else {
@@ -98,8 +96,9 @@ router.get('/profile', function (req, res, next) {
 		}else{
 			db.get(`Saldo_${data.nowa}`).then(async(agh) => {
 		const saldony3 = agh.saldo
+		if(saldony3 == null || saldony3 == undefined) return db.add(`Saldo_${personInfo.nowa}.saldo`, 1000)
 			//console.log("found");
-			return res.render('data.ejs', {"name":data.username,"nowa":data.nowa, "saldo": saldony3});
+			 res.render('data.ejs', {"name":data.username,"nowa":data.nowa, "saldo": saldony3});
 						})
 		}
 	});
