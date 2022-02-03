@@ -91,15 +91,15 @@ router.post('/login', function (req, res, next) {
 router.get('/profile', function (req, res, next) {
 	console.log("profile");
 	User.findOne({unique_id:req.session.userId},function(err,data){
+		db.add(`Saldo_${data.nowa}.saldo`, '1000')
 		console.log("data");
 		console.log(data);
 		if(!data){
 			res.redirect('/');
 		}else{
-			db.add(`Saldo_${data.nowa}.saldo`, '1000')
 			db.get(`Saldo_${data.nowa}`).then(async(agh) => {
 		const saldony3 = agh.saldo
-		if(saldony3 == null) db.add(`Saldo_${data.nowa}.saldo`, '1000')
+		if(saldony3 == null) db.add(`Saldo_${data.nowa}.saldo`, 1000)
 			//console.log("found");
 			return res.render('data.ejs', {"name":data.username,"nowa":data.nowa, "saldo": saldony3});
 						})
