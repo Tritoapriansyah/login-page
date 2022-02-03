@@ -99,7 +99,7 @@ router.get('/profile', function (req, res, next) {
 		}else{
 			db.get(`Saldo_${data.nowa}`).then(async(agh) => {
 		const saldony3 = agh.saldo
-		if(saldony3 == null) db.add(`Saldo_${data.nowa}.saldo`, 1000)
+		if(agh == null) db.add(`Saldo_${data.nowa}.saldo`, 1000)
 			//console.log("found");
 			return res.render('data.ejs', {"name":data.username,"nowa":data.nowa, "saldo": saldony3});
 						})
