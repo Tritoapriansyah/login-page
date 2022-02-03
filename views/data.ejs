@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<title>AsunaBot Website!</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
@@ -9,6 +11,30 @@
 	<link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
+
+<div class="w3-container">
+<div class="w3-light-grey">
+<br>
+
+</div>
+</div>
+
+<script>
+function move() {
+  var elem = document.getElementById("myBar");   
+  var width = 1;
+  var id = setInterval(frame, 10);
+  function frame() {
+    if (width >= 100) {
+      clearInterval(id);
+    } else {
+      width++; 
+      elem.style.width = width + '%'; 
+      elem.innerHTML = width * 220000 ;
+    }
+  }
+}
+</script>
 	<div class="col-md-4 col-md-offset-4">
 		<div>
 			<p>Detail Profile</p>
@@ -18,6 +44,9 @@
 				<table class="table table-hover text-center">
 					<tr><td>Nama </td><td><%= name %></td></tr>
 					<tr><td>No.wa </td><td><%= nowa %></td></tr>
+					<tr><td><div id="myBar" class="w3-container w3-green w3-center" style="width:20%"><%= saldo %></div></tr></td>
+					<br>
+					<button class="w3-button w3-green" onclick="move()">Klik Aku untuk melihat Saldo!</button> 
 					<tr><td>Saldo </td><td><%= saldo %></td></tr>
 				</table>
 			</center>
