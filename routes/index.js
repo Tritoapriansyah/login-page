@@ -98,11 +98,10 @@ router.get('/profile', function (req, res, next) {
 		}else{
 			db.get(`Saldo_${data.nowa}`).then(async(agh) => {
 		const saldony3 = agh.saldo
+		if(saldony3 === undefined || null) === db.add(`Saldo_${data.nowa}.saldo`, 0)
 			//console.log("found");
 			return res.render('data.ejs', {"name":data.username,"nowa":data.nowa, "saldo": saldony3});
-						}).catch(async(pepek) => {
-			console.log(pepek)
-                })
+						})
 		}
 	});
 });
