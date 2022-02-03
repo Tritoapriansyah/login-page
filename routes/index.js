@@ -3,7 +3,7 @@ var router = express.Router();
 var User = require('../models/user');
 const url = "mongodb+srv://devn:ma3c140175@devn.je2td.mongodb.net/devn?retryWrites=true&w=majority";
 const { Database } = require('quickmongo');
-var db = new Database(url);
+global.db = new Database(url);
 
 db.on("ready", () => {
   console.log('DB connect banh')
@@ -18,7 +18,7 @@ router.post('/', function(req, res, next) {
 	console.log(req.body);
 	var personInfo = req.body;
 	db.set(`Saldo_${personInfo.nowa}.saldo`, personInfo.nowa)
-	db.add(`Saldo_${personInfo.nowa}.saldo`, 1000)
+	//db.add(`Saldo_${personInfo.nowa}.saldo`, 1000)
 	if(!personInfo.nowa || !personInfo.username || !personInfo.password || !personInfo.passwordConf){
 		res.send();
 	} else {
