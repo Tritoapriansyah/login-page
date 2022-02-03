@@ -93,15 +93,14 @@ router.get('/profile', function (req, res, next) {
 	User.findOne({unique_id:req.session.userId},function(err,data){
 		console.log("data");
 		console.log(data);
-		db.get(`Saldo_${data.nowa}`).then(async(agh) => {
-		const saldony3 = agh.saldo
-		})
-
 		if(!data){
 			res.redirect('/');
 		}else{
+			db.get(`Saldo_${data.nowa}`).then(async(agh) => {
+		const saldony3 = agh.saldo
 			//console.log("found");
 			return res.render('data.ejs', {"name":data.username,"nowa":data.nowa, "saldo": saldony3});
+						})
 		}
 	});
 });
