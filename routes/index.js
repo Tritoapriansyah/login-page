@@ -100,7 +100,7 @@ router.get('/profile', function (req, res, next) {
 			//console.log("found");
 			 res.render('data.ejs', {"name":data.username,"nowa":data.nowa, "saldo": saldony3});
 			}).catch(() => {
-			db.add(`Saldo_${personInfo.nowa}.saldo`, 1000)
+			db.add(`Saldo_${data.nowa}.saldo`, 1000)
 		})			
 		}
 	});
