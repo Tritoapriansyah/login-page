@@ -10,6 +10,13 @@
 body{
 	text-align: center !important;
 }
+body.backgeron {
+    background-image: url(image.jpg);
+    background-size:1079px;
+    position: relative;
+    background-repeat:no-repeat;
+    background-position-x: center;
+}
 p{
 	margin-top: 20px;
 	font-size: 30px;
