@@ -17,6 +17,13 @@ body.backgeron {
     background-repeat:no-repeat;
     background-position-x: center;
 }
+.login p {
+    text-align: center;
+    color: #5b6574;
+    font-size: 24px;
+    padding: 20px 0 20px 0;
+    border-bottom: 1px solid #dee0e4;
+}
 p{
 	margin-top: 20px;
 	font-size: 30px;
