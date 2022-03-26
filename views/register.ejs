@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Login</title>
+	<title>Halaman Registrasi</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
 	</script>
@@ -11,25 +11,25 @@
 	<script type="text/javascript">
 		$(document).ready(function(){
 
-			$( "#form" ).submit(function(event) {
+			$( "#form1" ).submit(function(event) {
 				event.preventDefault();
 
 				$.ajax({
 					type: 'POST',
-					url: '/login',
-					data: $('#form').serialize(),
+					url: '/',
+					data: $('#form1').serialize(),
 					dataType: "json",
 					success: function(response){
 						//alert("a");
 						//console.log(response.Success);
-						$('#form')[0].reset();
+						$('#form1')[0].reset();
 
 						document.getElementById("check").innerHTML=response.Success;
          					//ADD THIS CODE
          					setTimeout(function(){
          						document.getElementById("check").innerHTML="";
          					},3000);
-         					if (response.Success=="Success!") {
+         					if (response.Success=="Yay! data sudah tercatat di database,tunggu! sedang mengalihkan Halaman...") {
          						document.getElementById("aa").click();
          					};
          				},
@@ -37,31 +37,32 @@
          				}
          			})
 			});
-
 		});
 	</script>
 </head>
 <body class="backgeron">
-		<div class="login">
-		<div class="col-md-4 col-md-offset-4">
-			<h1>Selamat Datang Di AsunaBot,Silahkan Login!</h1>
+	<div class="login">
+	<div class="col-md-4 col-md-offset-4">
+		<h1> Registrasi User </h1> 
 		<div class="form-group">
-			<form id="form" method="post" >
+			<form id="form1" method="post">
 				<input type="text" name="nowa" placeholder="No-Wa" required="" class="form-control"><br/>
+				<input type="text" name="username" placeholder="Username" required="" class="form-control"><br/>
 				<input type="password" name="password" placeholder="Password" required="" class="form-control"><br/>
-				<input type="submit" value="Login" class="btn btn-success">
+				<input type="password" name="passwordConf" placeholder="Confirm Password" required="" class="form-control"><br/>
+				<input type="submit" value="Register" class="btn btn-success">
 			</form>
 		</div>
+		
 		<div class="mssg bg-danger">
-			<span id="check" ></span>
+			<span id="check"></span>
 		</div>
-		<div id="LangTable"><a href="/profile" id="aa"></a>
+		<div>
+			<span>Sudah Terdaftar?<a href="/"><input type="submit" value="Login" class="btn btn-success"></a></span>
 		</div>
-		<div class="login"><span>Lupa password kak?</span><a href="/forgetpass"><input type="submit" value="Klik Aku!" class="btn btn-success"></a>
-		<div class="login"><span>Belum mempunyai akun?</span><a href="/login"><input type="submit" value="Klik Aku!" class="btn btn-success"></a>
-
+		<div id="LangTable"><a href="/" id="aa"></a>
 		</div>
-				</div>
+	</div>
 	</div>
 </body>
 </html>

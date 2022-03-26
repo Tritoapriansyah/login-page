@@ -10,11 +10,15 @@ db.on("ready", () => {
 })
 
 router.get('/', function (req, res, next) {
+	return res.render('home.html');
+});
+
+router.get('/login', function (req, res, next) {
 	return res.render('index.ejs');
 });
 
 
-router.post('/', function(req, res, next) {
+router.post('/login', function(req, res, next) {
 	console.log(req.body);
 	var personInfo = req.body;
 	if(!personInfo.nowa || !personInfo.username || !personInfo.password || !personInfo.passwordConf){
@@ -62,11 +66,11 @@ router.post('/', function(req, res, next) {
 	}
 });
 
-router.get('/login', function (req, res, next) {
-	return res.render('login.ejs');
+router.get('/register', function (req, res, next) {
+	return res.render('register.ejs');
 });
 
-router.post('/login', function (req, res, next) {
+router.post('/register', function (req, res, next) {
 	//console.log(req.body);
 	User.findOne({nowa:req.body.nowa},function(err,data){
 		if(data){
