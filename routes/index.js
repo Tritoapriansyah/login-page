@@ -10,11 +10,11 @@ db.on("ready", () => {
 })
 
 router.get('/', function (req, res, next) {
-	return res.render('home.html');
+	return res.render('home.ejs');
 });
 
 router.get('/login', function (req, res, next) {
-	return res.render('index.ejs');
+	return res.render('login.ejs');
 });
 
 
