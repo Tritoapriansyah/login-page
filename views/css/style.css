@@ -4380,6 +4380,13 @@ input[type="button"].btn-block {
   -ms-flex: 1;
   flex: 1; }
 
+}
+.mssg{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	border-radius: 5px;
+}
+
 .list-group {
   display: -webkit-box;
   display: -ms-flexbox;
