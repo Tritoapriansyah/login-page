@@ -9,16 +9,13 @@ db.on("ready", () => {
   console.log('DB connect banh')
 })
 
-router.get('/', function (req, res, next) {
-	return res.render('home.ejs');
-});
 
-router.get('/login', function (req, res, next) {
+router.get('/', function (req, res, next) {
 	return res.render('login.ejs');
 });
 
 
-router.post('/login', function(req, res, next) {
+router.post('/', function(req, res, next) {
 	console.log(req.body);
 	var personInfo = req.body;
 	if(!personInfo.nowa || !personInfo.username || !personInfo.password || !personInfo.passwordConf){
