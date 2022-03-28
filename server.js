@@ -41,7 +41,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static(__dirname + '/views'));
 
-var index = require('./routes/index');
+var index = require('./routes/main');
 app.use('/', index);
 
 // catch 404 and forward to error handler
