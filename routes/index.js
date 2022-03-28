@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
-const url = "mongodb+srv://devn:ma3c140175@devn.je2td.mongodb.net/devn?retryWrites=true&w=majority";
+const url = "mongodb+srv://Trito:23042006@cluster0.cdhbp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const { Database } = require('quickmongo');
 global.db = new Database(url);
 
