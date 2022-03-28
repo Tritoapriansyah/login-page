@@ -1,19 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Halaman Registrasi</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-	</script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="./css/main.css">
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>lolita login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="css/style.css">
 
 	<script type="text/javascript">
 		$(document).ready(function(){
-
 			$( "#form1" ).submit(function(event) {
 				event.preventDefault();
-
 				$.ajax({
 					type: 'POST',
 					url: '/',
@@ -23,7 +24,6 @@
 						//alert("a");
 						//console.log(response.Success);
 						$('#form1')[0].reset();
-
 						document.getElementById("check").innerHTML=response.Success;
          					//ADD THIS CODE
          					setTimeout(function(){
@@ -39,30 +39,59 @@
 			});
 		});
 	</script>
-</head>
-<body class="backgeron">
-	<div class="login">
-	<div class="col-md-4 col-md-offset-4">
-		<h1> Registrasi User </h1> 
-		<div class="form-group">
-			<form id="form1" method="post">
-				<input type="text" name="nowa" placeholder="No-Wa" required="" class="form-control"><br/>
-				<input type="text" name="username" placeholder="Username" required="" class="form-control"><br/>
-				<input type="password" name="password" placeholder="Password" required="" class="form-control"><br/>
-				<input type="password" name="passwordConf" placeholder="Confirm Password" required="" class="form-control"><br/>
-				<input type="submit" value="Register" class="btn btn-success">
-			</form>
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">daftar</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-6 col-lg-4">
+					<div class="login-wrap py-5">
+		      	<div class="img d-flex align-items-center justify-content-center" style="background-image: url(https://i.ibb.co/rvvkGFf/gambar-2022-03-28-114035.png);"></div>
+		      	<h3 class="text-center mb-0">daftar</h3>
+		      	<p class="text-center">daftar untuk mengunakan bot</p>
+						<form action="#" class="login-form">
+		      		<div class="form-group">
+		      			<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-user"></span></div>
+		      			<input type="text" name="nowa" class="form-control" placeholder="nowa" required>
+		      		</div>
+	            <div class="form-group">
+	            	<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-lock"></span></div>
+	              <input type="password" name="password" class="form-control" placeholder="Password" id="pass" required>
+	            </div>
+				<div class="form-group">
+	            	<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-lock"></span></div>
+	              <input type="password" name="password" class="form-control" placeholder="confirm password" id="pass1" required>
+	            </div>
+	            <div class="form-group">
+				<input type="submit" value="masuk" class="btn form-control btn-primary rounded submit px-3">
+	            </div>
+	          </form>
+	          <div class="w-100 text-center mt-4 text">
+	          	<p class="mb-0">sudah punya akun?</p>
+		          <a href="/">masuk</a>
+	          </div>
+	        </div>
+				</div>
+			</div>
 		</div>
-		
+	</section>
+
 		<div class="mssg bg-danger">
-			<span id="check"></span>
-		</div>
-		<div>
-			<span>Sudah Terdaftar?<a href="/"><input type="submit" value="Login" class="btn btn-success"></a></span>
+			<span id="check" ></span>
 		</div>
 		<div id="LangTable"><a href="/" id="aa"></a>
 		</div>
-	</div>
-	</div>
-</body>
+
+	<script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+
+	</body>
 </html>
+
